@@ -1,5 +1,6 @@
 import Repository from "../Repository";
+import Workspace from "../Workspace";
 
 export default interface IAccount{
-    repositories: ()=>Promise<Repository[]>
+    repositories: (workspace: Workspace)=>Promise<Repository[]>
 }
