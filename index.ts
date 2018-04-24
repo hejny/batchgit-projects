@@ -9,7 +9,7 @@ async function main(){
     //console.log();
 
     repositories[0].pull();
-    
+    repositories[0].pull();
 
 
     /*const workspace = await Workspace.fromConfig(config);

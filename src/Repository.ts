@@ -1,4 +1,5 @@
 import * as shell  from 'shelljs';
+import * as path  from 'path';
 import Workspace from './Workspace'
 
 export default class Repository{
@@ -29,7 +30,7 @@ export default class Repository{
             shell.exit(1);
         }
 
-        this._workspace.cd();
+        shell.cd(path.join(__dirname,'..',this._workspace.root));
         shell.exec(`git clone ${this.gitUrl}`);
 
     }
