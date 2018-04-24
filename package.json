@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Pavol Hejný",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/superagent": "^3.5.8",
+    "superagent": "^3.8.2"
+  }
 }

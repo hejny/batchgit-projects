@@ -1,18 +1,18 @@
 import Workspace from './Workspace'
 
-export default class Project{
+export default class Repository{
 
 
     //todo does it make sence private protected ?
     //todo _private convention
-    constructor(public protected gitUrl:string,private protected _workspace:Workspace){
+    constructor(public gitUrl:string/*,private protected _workspace:Workspace*/){
     }
 
     toString():string{
-        return();
+        return(`REPOSITORY(${this.gitUrl})`);
     }
 
-    get root():string{
+    /*get root():string{
         //todo
         //use fs path
     }
@@ -36,7 +36,7 @@ export default class Project{
         //todo test
         //todo prettier
         //todo push
-    }
+    }*/
 
 
 

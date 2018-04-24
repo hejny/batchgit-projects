@@ -1,4 +1,5 @@
 import Project from './Project'
+import * as superagent from 'superagent'
 
 interface IWorkspaceConfig{
     root: string,
@@ -24,6 +25,8 @@ export default class Workspace{
 
         for(const account of config.accounts){
 
+
+            loadRe
 
             const accountData = await superagent.get(``);
 
