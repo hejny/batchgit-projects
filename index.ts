@@ -8,8 +8,8 @@ async function main(){
     const repositories = await config.accounts[0].repositories(config.workspace);
     //console.log();
 
-    repositories[0].pull();
-    repositories[0].pull();
+    repositories[0].download();
+    repositories[0].download();
 
 
     /*const workspace = await Workspace.fromConfig(config);

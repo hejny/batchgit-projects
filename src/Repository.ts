@@ -1,5 +1,6 @@
 import * as shell  from 'shelljs';
 import * as path  from 'path';
+import * as fs  from 'fs';
 import Workspace from './Workspace'
 
 export default class Repository{
@@ -10,13 +11,11 @@ export default class Repository{
     constructor(public name:string, public gitUrl:string,private _workspace:Workspace){
     }
 
-    toString():string{
-        return(`REPOSITORY(${this.gitUrl})`);
+    get root():string{
+        return path.join(this._workspace.root,this.name);
     }
 
-
-
-    async pull(){
+    async download(){
         //if(!fs.exists(this.root)){//todo later better testing
             //todo shell git clone
         //}
@@ -24,14 +23,29 @@ export default class Repository{
         //todo pull
         //todo npm install
 
+        console.log(`Downloading ${this.name}.`);
+
 
         if (!shell.which('git')) {
             shell.echo('Sorry, this script requires git');
             shell.exit(1);
         }
 
-        shell.cd(path.join(__dirname,'..',this._workspace.root));
-        shell.exec(`git clone ${this.gitUrl}`);
+        shell.cd(this._workspace.root);
+
+        if(!fs.existsSync(path.join(this.root,'.git'))){
+            shell.exec(`git clone ${this.gitUrl} ${this.name}`);
+        }
+        
+        shell.cd(this.root);
+
+        shell.exec(`git fetch`);
+        shell.exec(`git pull`);
+
+
+        if(fs.existsSync(path.join(this.root,'package.json'))){
+            shell.exec(`npm install`);
+        }
 
     }
 
@@ -42,7 +56,7 @@ export default class Repository{
     }
 
 
-    async push(){
+    async upload(){
         //todo test
         //todo prettier
         //todo push
