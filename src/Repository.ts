@@ -5,7 +5,7 @@ export default class Repository{
 
     //todo does it make sence private protected ?
     //todo _private convention
-    constructor(public gitUrl:string/*,private protected _workspace:Workspace*/){
+    constructor(public name:string, public gitUrl:string/*,private protected _workspace:Workspace*/){
     }
 
     toString():string{

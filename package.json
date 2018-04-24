@@ -9,7 +9,9 @@
   "author": "Pavol Hejný",
   "license": "ISC",
   "dependencies": {
+    "@types/shelljs": "^0.7.8",
     "@types/superagent": "^3.5.8",
+    "shelljs": "^0.8.1",
     "superagent": "^3.8.2"
   }
 }
