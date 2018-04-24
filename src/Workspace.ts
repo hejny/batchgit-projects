@@ -25,7 +25,7 @@ export default class Workspace{
         for(const account of config.accounts){
 
 
-            accountData = await superagent.get(``);
+            const accountData = await superagent.get(``);
 
 
             for(const repository of accountData.xxxxxx){
