@@ -8,7 +8,11 @@ export default class Repository{
 
     //todo does it make sence private protected ?
     //todo _private convention
-    constructor(public name:string, public gitUrl:string,private _workspace:Workspace){
+
+    public name:string;
+
+    constructor(name:string, public gitUrl:string,private _workspace:Workspace){
+        this.name = _workspace.nameOrganizer(name);
     }
 
     get root():string{
