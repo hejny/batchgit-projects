@@ -3,14 +3,12 @@ import config  from './config.sample';
 
 async function main(){
 
-
-
-    const repositories = await config.accounts[0].repositories(config.workspace);
-    //console.log();
-
-    repositories[0].download();
-    repositories[0].download();
-
+    for(const account of config.accounts){
+        for(const repository of await account.repositories(config.workspace)){
+            repository.download();
+            throw new Error('x');
+        }
+    }
 
     /*const workspace = await Workspace.fromConfig(config);
 
