@@ -67,11 +67,11 @@ export default class Repository{
         console.log(`Root: ${repositoryRoot}`);
 
         if(!fs.existsSync(path.join(repositoryRoot,'.git'))){
-            console.log(`clonning...`);
+            console.log(`cloning...`);
             shell.cd(path.join(repositoryRoot,'..'));
             shell.exec(`git clone ${this.origin} ${path.basename(repositoryRoot)}`);
         }else{
-            console.log(`already clonned...`);
+            console.log(`already cloned...`);
         }
         
         shell.cd(repositoryRoot);

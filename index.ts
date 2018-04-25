@@ -16,7 +16,7 @@ async function main(){
         i++;
 
         console.clear();
-        console.log(`Downloadind ${i} / ${repositories.length}`);
+        console.log(`Downloading ${i} / ${repositories.length}`);
 
         await repository.download();
         throw new Error('x');
