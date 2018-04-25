@@ -4,8 +4,10 @@ import config  from './config.sample';
 
 async function main(){
 
+    console.clear();
     const repositories:Repository[] = [];
     for(const account of config.accounts){
+        console.log(`Getting repositories from ${account}.`);
         for(const repository of await account.repositories(config.workspace)){
             repositories.push(repository);
         }
@@ -19,9 +21,12 @@ async function main(){
         console.log(`Downloading ${i} / ${repositories.length}`);
 
         await repository.download();
-        throw new Error('x');
+        //throw new Error('x');
 
     };
+
+    console.clear();
+    console.log(`Downloaded ${repositories.length} repositories.`);
 
 }
 

@@ -23,4 +23,8 @@ export default class GitHub implements IAccount{
         return repositories;
         //return [];
     }
+
+    toString():string{
+        return `${this.username}'s GitHub account`;
+    }
 }
