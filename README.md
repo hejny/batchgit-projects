@@ -18,6 +18,6 @@ npm install -g typescript
 
 
 ```bash
-ts-node index.ts
+npm start
 ```
 

@@ -5,11 +5,16 @@ import config  from './config.sample';
 async function main(){
 
     console.clear();
+    let ignored = 0;
     const repositories:Repository[] = [];
     for(const account of config.accounts){
         console.log(`Getting repositories from ${account}.`);
         for(const repository of await account.repositories(config.workspace)){
-            repositories.push(repository);
+            if(config.ignore.indexOf(repository.name)===-1){
+                repositories.push(repository);
+            }else{
+                ignored++;
+            }
         }
     }
 
@@ -18,7 +23,7 @@ async function main(){
         i++;
 
         console.clear();
-        console.log(`Downloading ${i} / ${repositories.length}`);
+        console.log(`Downloading ${i} / ${repositories.length} (${ignored} ignored)`);
 
         await repository.download();
         //throw new Error('x');

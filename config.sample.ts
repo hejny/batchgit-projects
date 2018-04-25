@@ -8,6 +8,6 @@ export default {
         new GitHub('hejny')
     ],
     ignore:[
-        //'projects.git'//todo
+        'projects'
     ]
 }
