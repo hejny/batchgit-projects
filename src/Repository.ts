@@ -1,23 +1,9 @@
 import * as shell  from 'shelljs';
 import * as path  from 'path';
 import * as fs  from 'fs';
-import * as glob  from 'glob';
 import Workspace from './Workspace'
-import { resolve } from 'dns';
-import { isNull } from 'util';
 
-function globPromise(pattern: string, options: glob.IOptions):Promise<string[]>{
-    return new Promise((resolve,reject)=>{
-        glob(pattern, options, function (error, files) {
-            if(isNull(error)){
-                resolve(files)
-            }else{
-                reject(error);
-            }
-        });
 
-    });
-}
 
 export default class Repository{
 
@@ -32,14 +18,14 @@ export default class Repository{
     }
 
     async root():Promise<string>{
-        const folders = await globPromise(path.join(this._workspace.root,'**/.git'), {});
-        for(const folder of folders){
-            const repositoryRoot = path.join(folder,'..');
+        const unassignedRepositoriesRoot = await this._workspace.unassignedRepositoriesRoot();
+        for(const repositoryRoot of unassignedRepositoriesRoot){
             shell.cd(repositoryRoot);
 
             const { stdout, stderr } = shell.exec('git config --get remote.origin.url', { silent: true });
 
             if(this.origin === stdout.toString().trim()){
+                //todo remove root from workspace after match
                 return repositoryRoot;
             }
         }
