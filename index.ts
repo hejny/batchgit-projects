@@ -1,21 +1,27 @@
 import Workspace  from './src/Workspace';
+import Repository  from './src/Repository';
 import config  from './config.sample';
 
 async function main(){
 
+    const repositories:Repository[] = [];
     for(const account of config.accounts){
         for(const repository of await account.repositories(config.workspace)){
-            repository.download();
-            throw new Error('x');
+            repositories.push(repository);
         }
     }
 
-    /*const workspace = await Workspace.fromConfig(config);
+    let i = 0;
+    for(const repository of repositories){
+        i++;
 
-    for(const project of workspace.projects){
-        await project.pull();
-        console.log(`${project} pulled`);//todo stdio
-    }*/
+        console.clear();
+        console.log(`Downloadind ${i} / ${repositories.length}`);
+
+        await repository.download();
+        throw new Error('x');
+
+    };
 
 }
 

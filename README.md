@@ -6,8 +6,8 @@
 
 ## Install dependencies
 ```bash
-npm install
-npm 
+npm install -g ts-node
+npm install -g typescript
 ```
 
 ### Run
@@ -16,4 +16,8 @@ npm
 2 docker
 3 transpiled
 
+
+```bash
+ts-node index.ts
+```
 
