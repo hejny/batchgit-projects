@@ -1,24 +1,14 @@
 {
   "name": "projects",
   "version": "0.1.0",
-  "description": "",
+  "description": "Batch management of your git projects.",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "start": "npm run build && electron ./dist/main.js"
   },
-  "repository": "https://github.com/electron/electron-quick-start-typescript",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo",
-    "typescript"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Pavol Hejný<me@pavolhejny.com>",
   "devDependencies": {
     "@types/glob": "^5.0.35",
     "@types/shelljs": "^0.7.8",
