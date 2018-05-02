@@ -1,18 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "rootDir": "src",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "target": "ES2017",
+    "module": "commonjs",
+    "lib": [ "es2015", "dom" ],
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": false
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*"]
+    }
   },
-  "exclude": [
-    "node_modules"
+  "include": [
+    "src/**/*"
   ]
 }

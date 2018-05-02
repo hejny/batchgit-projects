@@ -1,5 +1,5 @@
 import * as path  from 'path';
-import globPromise  from './tools/globPromise';
+import globPromise  from '../tools/globPromise';
 import { isNull } from 'util';
 import Repository from './Repository';
 
@@ -21,7 +21,7 @@ export default class Workspace{
         return this._unassignedRepositoriesRoot;
     }
 
-    async repositories():Repository[]{
+    /* todo async repositories():Promise<Repository[]>{
         
-    }
+    }*/
 }
