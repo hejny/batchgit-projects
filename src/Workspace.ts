@@ -1,6 +1,7 @@
 import * as path  from 'path';
 import globPromise  from './tools/globPromise';
 import { isNull } from 'util';
+import Repository from './Repository';
 
 export default class Workspace{
     constructor(public rootRelative:string){
@@ -18,5 +19,9 @@ export default class Workspace{
             this._unassignedRepositoriesRoot = folders.map((folder)=>path.join(folder,'..'))
         }
         return this._unassignedRepositoriesRoot;
+    }
+
+    async repositories():Repository[]{
+        
     }
 }

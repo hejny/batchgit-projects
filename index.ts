@@ -5,6 +5,14 @@ import config  from './config.sample';
 async function main(){
 
     console.clear();
+    console.log(`Getting repositories from workspace.`);
+
+    
+
+
+
+
+    console.clear();
     let ignored = 0;
     const repositories:Repository[] = [];
     for(const account of config.accounts){
