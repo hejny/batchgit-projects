@@ -5,19 +5,22 @@ import * as superagent from 'superagent'
 
 export default class GitHub implements IAccount{
 
-    constructor(public username:string){
+    constructor(public username:string,private apiKey:string){
 
     }
 
     async repositories(workspace: Workspace){
 
 
-        const result = await superagent.get(`https://api.github.com/users/${this.username}/repos?per_page=200`);
+        const result = await superagent.get(`https://api.github.com/user/repos?per_page=1000&access_token=${this.apiKey}`);
         
         //console.log('-----------------');
         //console.log(result.body);
         //console.log('-----------------');
-        //console.log(JSON.parse(result.body)[0]);
+        //console.log('\x1Bc');
+        //console.log(result.body);
+        //return;
+
 
         const repositories = (result.body).map((repo:any)=>new Repository(repo.name,repo.ssh_url,workspace));
         return repositories;

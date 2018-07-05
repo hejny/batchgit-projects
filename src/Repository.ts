@@ -29,7 +29,12 @@ export default class Repository{
                 return repositoryRoot;
             }
         }
-        return path.join(this._workspace.root,this.name);
+
+        return path.join(this._workspace.root,this.owner,this.name);
+    }
+
+    get owner(){
+        return (this.origin.match(/\:((\w|\-)+)\//)||[''])[1]||'unknown';
     }
 
     async download(){
@@ -42,6 +47,7 @@ export default class Repository{
 
         console.log(`Name: ${this.name}.`);
         console.log(`Origin: ${this.origin}`);
+        console.log(`Owner: ${this.owner}`);
 
         if (!shell.which('git')) {
             throw new Error('This script requires git.');
@@ -54,8 +60,12 @@ export default class Repository{
 
         if(!fs.existsSync(path.join(repositoryRoot,'.git'))){
             console.log(`cloning...`);
-            shell.cd(path.join(repositoryRoot,'..'));
-            const result = shell.exec(`git clone ${this.origin} ${path.basename(repositoryRoot)}`);
+            //shell.cd(path.join(repositoryRoot,'..'));
+            
+            const command = `git clone ${this.origin} ${repositoryRoot}`;
+
+            console.log(command);
+            const result = shell.exec(command);
 
             /*
             todo

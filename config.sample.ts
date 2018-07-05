@@ -5,7 +5,7 @@ export default {
 
     workspace: new Workspace('../'),
     accounts: [
-        new GitHub('hejny')
+        new GitHub('hejny','<API_KEY>')
     ],
     ignore:[
         'projects'

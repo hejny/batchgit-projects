@@ -1,6 +1,6 @@
 import Workspace  from './src/Workspace';
 import Repository  from './src/Repository';
-import config  from './config.sample';
+import config  from './config';
 
 async function main(){
 
