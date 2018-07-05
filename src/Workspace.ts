@@ -14,8 +14,8 @@ export default class Workspace{
     private _unassignedRepositoriesRoot:string[]|null = null;
 
     async unassignedRepositoriesRoot():Promise<string[]>{
-        console.log('Analysingsdg existing repositories...');
         if(isNull(this._unassignedRepositoriesRoot)){
+            console.log('Analysingsdg existing repositories...');
             const folders = await globPromise(path.join(this.root,'**/.git'), {});
             this._unassignedRepositoriesRoot = folders.map((folder)=>path.join(folder,'..'))
         }
