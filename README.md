@@ -12,12 +12,18 @@ npm install -g typescript
 
 ### Run
 
-1 ts-node
-2 docker
-3 transpiled
+
+
 
 
 ```bash
 npm start
 ```
 
+
+
+### todo
+
+1) ts-node
+2) docker
+3) transpiled
