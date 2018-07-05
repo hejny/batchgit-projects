@@ -55,7 +55,14 @@ export default class Repository{
         if(!fs.existsSync(path.join(repositoryRoot,'.git'))){
             console.log(`cloning...`);
             shell.cd(path.join(repositoryRoot,'..'));
-            shell.exec(`git clone ${this.origin} ${path.basename(repositoryRoot)}`);
+            const result = shell.exec(`git clone ${this.origin} ${path.basename(repositoryRoot)}`);
+
+            /*
+            todo
+            if(result.stderr){
+                console.log('STDERR='+result.stderr);
+                throw new Error(result.stderr);
+            }*/
         }else{
             console.log(`already cloned...`);
         }

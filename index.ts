@@ -4,7 +4,7 @@ import config  from './config.sample';
 
 async function main(){
 
-    console.clear();
+    console.log('\x1Bc');
     console.log(`Getting repositories from workspace.`);
 
     
@@ -12,7 +12,7 @@ async function main(){
 
 
 
-    console.clear();
+    console.log('\x1Bc');
     let ignored = 0;
     const repositories:Repository[] = [];
     for(const account of config.accounts){
@@ -30,7 +30,7 @@ async function main(){
     for(const repository of repositories){
         i++;
 
-        console.clear();
+        console.log('\x1Bc');
         console.log(`Downloading ${i} / ${repositories.length} (${ignored} ignored)`);
 
         await repository.download();
@@ -38,7 +38,7 @@ async function main(){
 
     };
 
-    console.clear();
+    console.log('\x1Bc');
     console.log(`Downloaded ${repositories.length} repositories.`);
 
 }

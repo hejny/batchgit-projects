@@ -21,7 +21,7 @@ export default class Workspace{
         return this._unassignedRepositoriesRoot;
     }
 
-    async repositories():Repository[]{
+    /*async repositories():Repository[]{
         
-    }
+    }*/
 }
