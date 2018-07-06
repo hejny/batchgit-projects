@@ -32,7 +32,7 @@ async function main(){
     console.log(repositories.join('\n'));
     console.log('---------------------Ignored:');
     console.log(repositoriesIgnored.join('\n'));
-    process.exit();
+    //process.exit();
 
 
 
