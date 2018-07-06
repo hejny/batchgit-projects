@@ -91,6 +91,13 @@ export default class Repository{
 
     }
 
+    get fullName(){
+        return `${this.owner}/${this.name}`;
+    }
+
+    toString(){
+        return this.fullName
+    }
     /*
 
     async develop(){
